@@ -1,12 +1,15 @@
-version: '3'
+version: '3.8'
+
 services:
   web:
     build: .
     ports:
-      - "8080:5000"
+      - "8080:8080"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/orgdb
     depends_on:
       - mongo
-        
+
   mongo:
     image: mongo:latest
     ports:
